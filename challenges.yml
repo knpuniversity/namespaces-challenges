@@ -10,8 +10,8 @@ addsimplenamespacecoding:
         Everyone is starving, and depending on you!
     step: ~
     files:
-        - eat.php
-        - Pizza.php
+        eat.php: ~
+        Pizza.php: ~
     features:
         editor: ~
         browser:
@@ -24,8 +24,9 @@ addusestatementcoding:
         can shorten the line that creates the new `Pizza`.
     step: ~
     files:
-        - eat.php
-        - Pizza.php
+        eat.php: ~
+        Pizza.php:
+            read_only: true
     features:
         editor: ~
         browser:
@@ -93,9 +94,9 @@ addaliastousestatementcoding:
         code runs using the new alias.
     step: ~
     files:
-        - eat.php
-        - Lunch.php
-        - Pizza.php
+        eat.php: ~
+        Pizza.php:
+            read_only: true
     features:
         editor: ~
         browser:
@@ -111,9 +112,11 @@ fixmissingusestatementcoding:
         P.S. This is the *most* common mistake when using namespaces.
     step: ~
     files:
-        - eat.php
-        - Lunch.php
-        - Pizza.php
+        eat.php:
+            read_only: true
+        Lunch.php: ~
+        Pizza.php:
+            read_only: true
     features:
         editor: ~
         browser:
