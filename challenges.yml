@@ -10,11 +10,12 @@ addsimplenamespacecoding:
         Everyone is starving, and depending on you!
     step: ~
     files:
-        - eat.php # entry point
+        - eat.php
         - Pizza.php
     features:
         editor: ~
-        browser: ~
+        browser:
+            default_uri: /eat.php
     grading: ~
 addusestatementcoding:
     question: >
@@ -23,11 +24,12 @@ addusestatementcoding:
         can shorten the line that creates the new `Pizza`.
     step: ~
     files:
-        - eat.php # entry point
+        - eat.php
         - Pizza.php
     features:
         editor: ~
-        browser: ~
+        browser:
+            default_uri: /eat.php
     grading: ~
 namespaceleadingslashmc:
     question: >
@@ -91,12 +93,13 @@ addaliastousestatementcoding:
         code runs using the new alias.
     step: ~
     files:
-        - eat.php # entry point
+        - eat.php
         - Lunch.php
         - Pizza.php
     features:
         editor: ~
-        browser: ~
+        browser:
+            default_uri: /eat.php
     grading: ~
 fixmissingusestatementcoding:
     question: >
@@ -108,9 +111,11 @@ fixmissingusestatementcoding:
         P.S. This is the *most* common mistake when using namespaces.
     step: ~
     files:
-        - eat.php # entry point
+        - eat.php
+        - Lunch.php
         - Pizza.php
     features:
         editor: ~
-        browser: ~
+        browser:
+            default_uri: /eat.php
     grading: ~
