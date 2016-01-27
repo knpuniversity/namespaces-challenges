@@ -8,7 +8,7 @@ addsimplenamespacecoding:
         to work, but **without** adding a `use` statement.
 
         Everyone is starving, and depending on you!
-    step: add-pizza-class
+    step: add-the-pizza-class
     files:
         eat.php: ~
         Pizza.php: ~
@@ -38,7 +38,7 @@ addusestatementcoding:
         Next, see if you can add a `use` statement
         to `eat.php` for the `Pizza` class. Then, you
         can shorten the line that creates the new `Pizza`.
-    step: add-namespace-to-pizza-class
+    step: add-namespace-to-the-pizza-class
     files:
         eat.php: ~
         Pizza.php:
