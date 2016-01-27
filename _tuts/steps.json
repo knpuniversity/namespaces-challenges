@@ -1,0 +1,35 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "add-pizza-class",
+            "name": "Add Pizza class",
+            "description": null
+        },
+        {
+            "id": "add-namespace-to-pizza-class",
+            "name": "Add namespace to Pizza class",
+            "description": null
+        },
+        {
+            "id": "add-namespace-alias-to-the-pizza-class",
+            "name": "Add namespace alias to the Pizza class",
+            "description": null
+        },
+        {
+            "id": "add-the-lunch-class",
+            "name": "Add the Lunch class",
+            "description": null
+        },
+        {
+            "id": "fix-the-pizza-class-namespace",
+            "name": "Fix the Pizza class namespace",
+            "description": null
+        }
+    ],
+    "sha": "81f9ff269b6477d681d2371e8d7c6cc35951f90f"
+}

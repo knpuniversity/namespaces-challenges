@@ -1,0 +1,24 @@
+diff --git a/Pizza.php b/Pizza.php
+index 6a34e8a..cacb9c8 100644
+--- a/Pizza.php
++++ b/Pizza.php
+@@ -1,5 +1,7 @@
+ <?php
+ 
++namespace Food\Tasty;
++
+ class Pizza
+ {
+     public function eat()
+diff --git a/eat.php b/eat.php
+index 139fe8d..5a63c3e 100644
+--- a/eat.php
++++ b/eat.php
+@@ -2,6 +2,6 @@
+ 
+ require 'Pizza.php';
+ 
+-$pizza = new Pizza();
++$pizza = new \Food\Tasty\Pizza();
+ 
+ echo $pizza->eat();

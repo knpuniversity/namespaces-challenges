@@ -1,0 +1,35 @@
+diff --git a/Lunch.php b/Lunch.php
+new file mode 100644
+index 0000000..dc8cb71
+--- /dev/null
++++ b/Lunch.php
+@@ -0,0 +1,11 @@
++<?php
++
++namespace Meals;
++
++class Lunch
++{
++    public function getFood()
++    {
++        return new Pizza();
++    }
++}
+diff --git a/eat.php b/eat.php
+index 27c83fa..b4c24f8 100644
+--- a/eat.php
++++ b/eat.php
+@@ -1,9 +1,9 @@
+ <?php
+ 
+ require 'Pizza.php';
++require 'Lunch.php';
+ 
+-use Food\Tasty\Pizza as ItalianTreat;
++use Meals\Lunch;
+ 
+-$pizza = new Pizza();
+-
+-echo $pizza->eat();
++$lunch = new Lunch();
++echo $lunch->getFood()->eat();
