@@ -8,7 +8,7 @@ addsimplenamespacecoding:
         to work, but **without** adding a `use` statement.
 
         Everyone is starving, and depending on you!
-    step: ~
+    step: add-pizza-class
     files:
         eat.php: ~
         Pizza.php: ~
@@ -38,7 +38,7 @@ addusestatementcoding:
         Next, see if you can add a `use` statement
         to `eat.php` for the `Pizza` class. Then, you
         can shorten the line that creates the new `Pizza`.
-    step: ~
+    step: add-namespace-to-pizza-class
     files:
         eat.php: ~
         Pizza.php:
@@ -124,7 +124,7 @@ addaliastousestatementcoding:
         statement for `Pizza` to use an alias: `ItalianTreat`. Without
         changing that line, update the `new` line so that the
         code runs using the new alias.
-    step: ~
+    step: add-namespace-alias-to-the-pizza-class
     files:
         eat.php: ~
         Pizza.php:
@@ -154,7 +154,7 @@ fixmissingusestatementcoding:
         fix this code?
 
         P.S. This is the *most* common mistake when using namespaces.
-    step: ~
+    step: add-the-lunch-class
     files:
         eat.php:
             read_only: true
