@@ -6,13 +6,13 @@
             "description": null
         },
         {
-            "id": "add-pizza-class",
-            "name": "Add Pizza class",
+            "id": "add-the-pizza-class",
+            "name": "Add the Pizza class",
             "description": null
         },
         {
-            "id": "add-namespace-to-pizza-class",
-            "name": "Add namespace to Pizza class",
+            "id": "add-namespace-to-the-pizza-class",
+            "name": "Add namespace to the Pizza class",
             "description": null
         },
         {
@@ -31,5 +31,5 @@
             "description": null
         }
     ],
-    "sha": "81f9ff269b6477d681d2371e8d7c6cc35951f90f"
+    "sha": "f1f692a93b513e0fb5969bd1b279d4a569cbc30d"
 }
