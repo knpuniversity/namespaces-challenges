@@ -19,12 +19,12 @@ addsimplenamespacecoding:
     grading:
         check_classes:
             type: php
-            expect: "(not class_exists('Food\Tasty\Pizza')) and class_exists('Pizza')"
-            failure: "Don't forget to give the `Pizza` class a namespace of `Food\Tasty`"
+            expect: (not class_exists('Food\Tasty\Pizza')) and class_exists('Pizza')
+            failure: Don't forget to give the `Pizza` class a namespace of `Food\Tasty`
         check_class:
             type: php
-            expect: "not class_exists('Food\Tasty\Pizza')"
-            failure: "The `Pizza` class's `namespace` doesn't look right. Make sure it's `Food\Tasty`"
+            expect: not class_exists('Food\Tasty\Pizza')
+            failure: The `Pizza` class's `namespace` doesn't look right. Make sure it's `Food\Tasty`
         check_output:
             type: http
             expect: "body() matches '/COWP/'"
@@ -54,15 +54,15 @@ addusestatementcoding:
             failure: "The output no longer has the COWP! Is something wrong?"
         look_for_use:
             type: php
-            expect: "not (input('eat.php') matches '/use +\Food\Tasty\Pizza/')"
-            failure: "Don't use `\\` at the beginning of namespace in `use` statement. It doesn't necessary."
+            expect: not (input('eat.php') matches '/use +\Food\Tasty\Pizza/')
+            failure: Don't use `\` at the beginning of namespace in `use` statement. It doesn't necessary.
         look_for_use2:
             type: php
-            expect: "input('eat.php') matches '/use +Food\Tasty\Pizza/'"
+            expect: input('eat.php') matches '/use +Food\Tasty\Pizza/'
             failure: "You should add a `use` statement for the `Pizza` class."
         look_for_new:
             type: php
-            expect: "not (input('eat.php') matches '/new +\?Food\Tasty\Pizza/')"
+            expect: not (input('eat.php') matches '/new +\?Food\Tasty\Pizza/')
             failure: "You don't need to use a full namespace anymore when create an instance of the `Pizza` class."
 namespaceleadingslashmc:
     question: >
@@ -140,7 +140,7 @@ addaliastousestatementcoding:
             failure: "The output no longer has the COWP! Is something wrong?"
         look_for_aliased_use:
             type: php
-            expect: "input('eat.php') matches '/use +Food\Tasty\Pizza +as +ItalianTreat;/'"
+            expect: input('eat.php') matches '/use +Food\Tasty\Pizza +as +ItalianTreat;/'
             failure: "Don't change the `use` line with the `ItalianTreat` alias. Instead, update the line where you create a new instance of the `Pizza` class to work with the `ItalianTreat` alias."
         look_for_new:
             type: php
@@ -176,9 +176,9 @@ fixmissingusestatementcoding:
             failure: "Try to fix it without changing the `Pizza` class name in `getFood()` method."
         look_for_use:
             type: php
-            expect: "not (input('Lunch.php') matches '/use \Food\Tasty\Pizza;/')"
-            failure: "Don't use `\\` at the beginning of namespace in `use` statement. It doesn't necessary."
+            expect: not (input('Lunch.php') matches '/use \Food\Tasty\Pizza;/')
+            failure: Don't use `\` at the beginning of namespace in `use` statement. It doesn't necessary.
         look_for_use2:
             type: php
-            expect: "input('Lunch.php') matches '/use Food\Tasty\Pizza;/'"
+            expect: input('Lunch.php') matches '/use Food\Tasty\Pizza;/'
             failure: "Seems we need to add a `use` statement for the `Pizza` class in the `Lunch.php` file."
