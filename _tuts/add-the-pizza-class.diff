@@ -1,0 +1,28 @@
+diff --git a/Pizza.php b/Pizza.php
+new file mode 100644
+index 0000000..6a34e8a
+--- /dev/null
++++ b/Pizza.php
+@@ -0,0 +1,9 @@
++<?php
++
++class Pizza
++{
++    public function eat()
++    {
++        return 'COWP!';
++    }
++}
+diff --git a/eat.php b/eat.php
+new file mode 100644
+index 0000000..139fe8d
+--- /dev/null
++++ b/eat.php
+@@ -0,0 +1,7 @@
++<?php
++
++require 'Pizza.php';
++
++$pizza = new Pizza();
++
++echo $pizza->eat();

@@ -1,0 +1,14 @@
+diff --git a/eat.php b/eat.php
+index 5a63c3e..27c83fa 100644
+--- a/eat.php
++++ b/eat.php
+@@ -2,6 +2,8 @@
+ 
+ require 'Pizza.php';
+ 
+-$pizza = new \Food\Tasty\Pizza();
++use Food\Tasty\Pizza as ItalianTreat;
++
++$pizza = new Pizza();
+ 
+ echo $pizza->eat();

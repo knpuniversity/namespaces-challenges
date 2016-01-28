@@ -1,0 +1,13 @@
+diff --git a/Lunch.php b/Lunch.php
+index dc8cb71..5a12519 100644
+--- a/Lunch.php
++++ b/Lunch.php
+@@ -2,6 +2,8 @@
+ 
+ namespace Meals;
+ 
++use Food\Tasty\Pizza;
++
+ class Lunch
+ {
+     public function getFood()

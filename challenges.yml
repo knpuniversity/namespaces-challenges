@@ -1,0 +1,184 @@
+addsimplenamespacecoding:
+    question: >
+        Everyone at the office is *starving*, but you want to
+        master namespaces before celebrating with lunch.
+
+        This `Pizza` class looks great. But now, give the
+        class a namespace - `Food\Tasty`. Then, update `eat.php`
+        to work, but **without** adding a `use` statement.
+
+        Everyone is starving, and depending on you!
+    step: add-the-pizza-class
+    files:
+        eat.php: ~
+        Pizza.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /eat.php
+    grading:
+        check_classes:
+            type: php
+            expect: "(not class_exists('Food\Tasty\Pizza')) and class_exists('Pizza')"
+            failure: "Don't forget to give the `Pizza` class a namespace of `Food\Tasty`"
+        check_class:
+            type: php
+            expect: "not class_exists('Food\Tasty\Pizza')"
+            failure: "The `Pizza` class's `namespace` doesn't look right. Make sure it's `Food\Tasty`"
+        check_output:
+            type: http
+            expect: "body() matches '/COWP/'"
+            failure: "The output no longer has the COWP! Is something wrong?"
+        look_for_use:
+            type: php
+            expect: "not (input('eat.php') matches '/use/')"
+            failure: "See if you can create a new `Pizza` class, but *without* a `use` statement."
+addusestatementcoding:
+    question: >
+        Next, see if you can add a `use` statement
+        to `eat.php` for the `Pizza` class. Then, you
+        can shorten the line that creates the new `Pizza`.
+    step: add-namespace-to-the-pizza-class
+    files:
+        eat.php: ~
+        Pizza.php:
+            read_only: true
+    features:
+        editor: ~
+        browser:
+            default_uri: /eat.php
+    grading:
+        check_output:
+            type: http
+            expect: "body() matches '/COWP/'"
+            failure: "The output no longer has the COWP! Is something wrong?"
+        look_for_use:
+            type: php
+            expect: "not (input('eat.php') matches '/use +\Food\Tasty\Pizza/')"
+            failure: "Don't use `\\` at the beginning of namespace in `use` statement. It doesn't necessary."
+        look_for_use2:
+            type: php
+            expect: "input('eat.php') matches '/use +Food\Tasty\Pizza/'"
+            failure: "You should add a `use` statement for the `Pizza` class."
+        look_for_new:
+            type: php
+            expect: "not (input('eat.php') matches '/new +\?Food\Tasty\Pizza/')"
+            failure: "You don't need to use a full namespace anymore when create an instance of the `Pizza` class."
+namespaceleadingslashmc:
+    question: >
+        Check out this `Koala` class:
+
+        ```php
+        namespace Animal\Adorable;
+
+        class Koala
+        {
+        }
+        ```
+
+        And this code that uses it:
+
+        ```php
+        $koala = new \Animal\Adorable\Koala();
+        ```
+
+        Is that first slash in `\Animal\Adorable\Koala` necessary?
+    explanation: >
+        With no opening slash, PHP thinks you are referring to a
+        class that is in the current file's namespace *plus* this
+        namespace. For example:
+
+        ```php
+        // namespaced_file.php
+        namespace Zoo;
+
+        $koala = new Animal\Adorable\Koala();
+        // "Class not found Zoo\Animal\Adorable\Koala"
+        ```php
+        // no_namespace.php
+        $koala = new \Animal\Adorable\Koala();
+        // This works!
+        ```
+
+        Most of the time you should have a `use` statement anyways,
+        But if you use the full namespace, it's much safer to
+        include the opening slash: that will *always* work.
+    features:
+        multiple_choice:
+            choices:
+                a: >
+                    Yes. If you choose to not have a `use` statement,
+                    then you must always start with a `\` so that PHP knows
+                    to build the namespace from the *root* of all namespaces.
+                b: >
+                    No. The slash is always optional, and really redundant:
+                    PHP knows that you are looking for a class from the root of
+                    the namespace.
+                c: >
+                    It depends on whether or not this file lives in a namespace.
+            correct: c
+    grading: []
+addaliastousestatementcoding:
+    question: >
+        The intern is messing around and has changed the `use`
+        statement for `Pizza` to use an alias: `ItalianTreat`. Without
+        changing that line, update the `new` line so that the
+        code runs using the new alias.
+    step: add-namespace-alias-to-the-pizza-class
+    files:
+        eat.php: ~
+        Pizza.php:
+            read_only: true
+    features:
+        editor: ~
+        browser:
+            default_uri: /eat.php
+    grading:
+        check_output:
+            type: http
+            expect: "body() matches '/COWP/'"
+            failure: "The output no longer has the COWP! Is something wrong?"
+        look_for_aliased_use:
+            type: php
+            expect: "input('eat.php') matches '/use +Food\Tasty\Pizza +as +ItalianTreat;/'"
+            failure: "Don't change the `use` line with the `ItalianTreat` alias. Instead, update the line where you create a new instance of the `Pizza` class to work with the `ItalianTreat` alias."
+        look_for_new:
+            type: php
+            expect: "input('eat.php') matches '/new ItalianTreat/'"
+            failure: "Did you use the `ItalianTreat` alias for creating an instance of the `Pizza` class?"
+fixmissingusestatementcoding:
+    question: >
+        After lunch, the whole team is happily coding with
+        namespaces and `use` statements. Suddenly, someone
+        sees an error and calls you over for help! Can you
+        fix this code?
+
+        P.S. This is the *most* common mistake when using namespaces.
+    step: add-the-lunch-class
+    files:
+        eat.php:
+            read_only: true
+        Lunch.php: ~
+        Pizza.php:
+            read_only: true
+    features:
+        editor: ~
+        browser:
+            default_uri: /eat.php
+    grading:
+        check_output:
+            type: http
+            expect: "body() matches '/COWP/'"
+            failure: "The output no longer has the COWP! Is something wrong?"
+        look_for_return:
+            type: php
+            expect: "input('Lunch.php') matches '/return new Pizza/'"
+            failure: "Try to fix it without changing the `Pizza` class name in `getFood()` method."
+        look_for_use:
+            type: php
+            expect: "not (input('Lunch.php') matches '/use \Food\Tasty\Pizza;/')"
+            failure: "Don't use `\\` at the beginning of namespace in `use` statement. It doesn't necessary."
+        look_for_use2:
+            type: php
+            expect: "input('Lunch.php') matches '/use Food\Tasty\Pizza;/'"
+            failure: "Seems we need to add a `use` statement for the `Pizza` class in the `Lunch.php` file."
