@@ -1,5 +1,5 @@
 addsimplenamespacecoding:
-    question: >
+    question: |
         Everyone at the office is *starving*, but you want to
         master namespaces before celebrating with lunch.
 
@@ -34,7 +34,7 @@ addsimplenamespacecoding:
             expect: "not (input('eat.php') matches '/use/')"
             failure: "See if you can create a new `Pizza` class, but *without* a `use` statement."
 addusestatementcoding:
-    question: >
+    question: |
         Next, see if you can add a `use` statement
         to `eat.php` for the `Pizza` class. Then, you
         can shorten the line that creates the new `Pizza`.
@@ -65,7 +65,7 @@ addusestatementcoding:
             expect: not (input('eat.php') matches '/new +\?Food\Tasty\Pizza/')
             failure: "You don't need to use a full namespace anymore when create an instance of the `Pizza` class."
 namespaceleadingslashmc:
-    question: >
+    question: |
         Check out this `Koala` class:
 
         ```php
@@ -83,7 +83,7 @@ namespaceleadingslashmc:
         ```
 
         Is that first slash in `\Animal\Adorable\Koala` necessary?
-    explanation: >
+    explanation: |
         With no opening slash, PHP thinks you are referring to a
         class that is in the current file's namespace *plus* this
         namespace. For example:
@@ -106,20 +106,20 @@ namespaceleadingslashmc:
     features:
         multiple_choice:
             choices:
-                a: >
+                a: |
                     Yes. If you choose to not have a `use` statement,
                     then you must always start with a `\` so that PHP knows
                     to build the namespace from the *root* of all namespaces.
-                b: >
+                b: |
                     No. The slash is always optional, and really redundant:
                     PHP knows that you are looking for a class from the root of
                     the namespace.
-                c: >
+                c: |
                     It depends on whether or not this file lives in a namespace.
             correct: c
     grading: []
 addaliastousestatementcoding:
-    question: >
+    question: |
         The intern is messing around and has changed the `use`
         statement for `Pizza` to use an alias: `ItalianTreat`. Without
         changing that line, update the `new` line so that the
@@ -147,7 +147,7 @@ addaliastousestatementcoding:
             expect: "input('eat.php') matches '/new ItalianTreat/'"
             failure: "Did you use the `ItalianTreat` alias for creating an instance of the `Pizza` class?"
 fixmissingusestatementcoding:
-    question: >
+    question: |
         After lunch, the whole team is happily coding with
         namespaces and `use` statements. Suddenly, someone
         sees an error and calls you over for help! Can you
