@@ -17,21 +17,21 @@ addsimplenamespacecoding:
         browser:
             default_uri: /eat.php
     grading:
-        check_classes:
+        check_old_class_does_not_exist:
             type: php
-            expect: (not class_exists('Food\Tasty\Pizza')) and class_exists('Pizza')
+            expect: not class_exist('Pizza')
             failure: Don't forget to give the `Pizza` class a namespace of `Food\Tasty`
-        check_class:
+        check_for_new_class:
             type: php
-            expect: not class_exists('Food\Tasty\Pizza')
+            expect: class_exists('Food\Tasty\Pizza')
             failure: The `Pizza` class's `namespace` doesn't look right. Make sure it's `Food\Tasty`
         check_output:
             type: http
             expect: "body() matches '/COWP/'"
             failure: "The output no longer has the COWP! Is something wrong?"
-        look_for_use:
+        should_be_no_use_statement:
             type: php
-            expect: "not (input('eat.php') matches '/use/')"
+            expect: "not input('eat.php') matches '/use/'"
             failure: "See if you can create a new `Pizza` class, but *without* a `use` statement."
 addusestatementcoding:
     question: |
