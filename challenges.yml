@@ -23,7 +23,7 @@ addsimplenamespacecoding:
             failure: Don't forget to give the `Pizza` class a namespace of `Food\Tasty`
         check_for_new_class:
             type: php
-            expect: class_exists('Food\Tasty\Pizza')
+            expect: class_exists('Food\\Tasty\\Pizza')
             failure: The `Pizza` class's `namespace` doesn't look right. Make sure it's `Food\Tasty`
         check_output:
             type: http
