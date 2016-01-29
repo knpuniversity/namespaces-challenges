@@ -19,7 +19,7 @@ addsimplenamespacecoding:
     grading:
         check_old_class_does_not_exist:
             type: php
-            expect: not class_exist('Pizza')
+            expect: not class_exists('Pizza')
             failure: Don't forget to give the `Pizza` class a namespace of `Food\Tasty`
         check_for_new_class:
             type: php
