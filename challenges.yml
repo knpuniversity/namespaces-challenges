@@ -19,19 +19,19 @@ addsimplenamespacecoding:
     grading:
         check_old_class_does_not_exist:
             type: php
-            expect: not class_exists('Pizza')
+            assertFalse: class_exists('Pizza')
             failure: Don't forget to give the `Pizza` class a namespace of `Food\Tasty`
         check_for_new_class:
             type: php
-            expect: class_exists('Food\\Tasty\\Pizza')
+            assertTrue: class_exists('Food\\Tasty\\Pizza')
             failure: The `Pizza` class's `namespace` doesn't look right. Make sure it's `Food\Tasty`
         check_output:
             type: http
-            expect: "body() matches '/COWP/'"
+            assertTrue: "body() matches '/COWP/'"
             failure: "The output no longer has the COWP! Is something wrong?"
         should_be_no_use_statement:
             type: php
-            expect: "not input('eat.php') matches '/use/'"
+            assertFalse: "input('eat.php') matches '/use/'"
             failure: "See if you can create a new `Pizza` class, but *without* a `use` statement."
 addusestatementcoding:
     question: |
@@ -50,19 +50,19 @@ addusestatementcoding:
     grading:
         check_output:
             type: http
-            expect: "body() matches '/COWP/'"
+            assertTrue: "body() matches '/COWP/'"
             failure: "The output no longer has the COWP! Is something wrong?"
         look_for_use:
             type: php
-            expect: not (input('eat.php') matches '/use +\Food\Tasty\Pizza/')
+            assertFalse: input('eat.php') matches '/use +\Food\Tasty\Pizza/'
             failure: Don't use `\` at the beginning of namespace in `use` statement. It doesn't necessary.
         look_for_use2:
             type: php
-            expect: input('eat.php') matches '/use +Food\Tasty\Pizza/'
+            assertTrue: input('eat.php') matches '/use +Food\Tasty\Pizza/'
             failure: "You should add a `use` statement for the `Pizza` class."
         look_for_new:
             type: php
-            expect: not (input('eat.php') matches '/new +\?Food\Tasty\Pizza/')
+            assertFalse: input('eat.php') matches '/new +\?Food\Tasty\Pizza/'
             failure: "You don't need to use a full namespace anymore when create an instance of the `Pizza` class."
 namespaceleadingslashmc:
     question: |
@@ -136,15 +136,15 @@ addaliastousestatementcoding:
     grading:
         check_output:
             type: http
-            expect: "body() matches '/COWP/'"
+            assertTrue: "body() matches '/COWP/'"
             failure: "The output no longer has the COWP! Is something wrong?"
         look_for_aliased_use:
             type: php
-            expect: input('eat.php') matches '/use +Food\Tasty\Pizza +as +ItalianTreat;/'
+            assertTrue: input('eat.php') matches '/use +Food\Tasty\Pizza +as +ItalianTreat;/'
             failure: "Don't change the `use` line with the `ItalianTreat` alias. Instead, update the line where you create a new instance of the `Pizza` class to work with the `ItalianTreat` alias."
         look_for_new:
             type: php
-            expect: "input('eat.php') matches '/new ItalianTreat/'"
+            assertTrue: "input('eat.php') matches '/new ItalianTreat/'"
             failure: "Did you use the `ItalianTreat` alias for creating an instance of the `Pizza` class?"
 fixmissingusestatementcoding:
     question: |
@@ -168,17 +168,17 @@ fixmissingusestatementcoding:
     grading:
         check_output:
             type: http
-            expect: "body() matches '/COWP/'"
+            assertTrue: "body() matches '/COWP/'"
             failure: "The output no longer has the COWP! Is something wrong?"
         look_for_return:
             type: php
-            expect: "input('Lunch.php') matches '/return new Pizza/'"
+            assertTrue: "input('Lunch.php') matches '/return new Pizza/'"
             failure: "Try to fix it without changing the `Pizza` class name in `getFood()` method."
         look_for_use:
             type: php
-            expect: not (input('Lunch.php') matches '/use \Food\Tasty\Pizza;/')
+            assertFalse: input('Lunch.php') matches '/use \Food\Tasty\Pizza;/'
             failure: Don't use `\` at the beginning of namespace in `use` statement. It doesn't necessary.
         look_for_use2:
             type: php
-            expect: input('Lunch.php') matches '/use Food\Tasty\Pizza;/'
+            assertTrue: input('Lunch.php') matches '/use Food\Tasty\Pizza;/'
             failure: "Seems we need to add a `use` statement for the `Pizza` class in the `Lunch.php` file."
