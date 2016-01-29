@@ -94,6 +94,8 @@ namespaceleadingslashmc:
 
         $koala = new Animal\Adorable\Koala();
         // "Class not found Zoo\Animal\Adorable\Koala"
+        ```
+
         ```php
         // no_namespace.php
         $koala = new \Animal\Adorable\Koala();
