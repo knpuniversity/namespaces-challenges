@@ -52,18 +52,22 @@ addusestatementcoding:
             type: http
             assertTrue: "body() matches '/COWP/'"
             failure: "The output no longer has the COWP! Is something wrong?"
-        look_for_use:
+        look_for_use_only:
             type: php
-            assertFalse: input('eat.php') matches '/use +\Food\Tasty\Pizza/'
-            failure: Don't use `\` at the beginning of namespace in `use` statement. It doesn't necessary.
-        look_for_use2:
-            type: php
-            assertTrue: input('eat.php') matches '/use +Food\Tasty\Pizza/'
+            assertTrue: inputContains('eat.php', 'use ')
             failure: "You should add a `use` statement for the `Pizza` class."
+        look_for_use_no_slash:
+            type: php
+            assertFalse: inputContains('eat.php', 'use \\Food\\Tasty\\Pizza')
+            failure: Don't use `\` at the beginning of namespace in `use` statement. It's not necessary.
+        look_for_use_properly:
+            type: php
+            assertTrue: inputContains('eat.php', 'use Food\\Tasty\\Pizza')
+            failure: "You should add a `use` statement for the `Pizza` class!!!"
         look_for_new:
             type: php
-            assertFalse: input('eat.php') matches '/new +\?Food\Tasty\Pizza/'
-            failure: "You don't need to use a full namespace anymore when create an instance of the `Pizza` class."
+            assertFalse: inputContains('eat.php', 'new \\Food\\Tasty\\Pizza')
+            failure: "Because of the `use` statement, you don't need the full namespace - e.g. `new Food\\Tasty\\Pizza` - when creating the `Pizza` object. Just say `new Pizza()`!"
 namespaceleadingslashmc:
     question: |
         Check out this `Koala` class:
