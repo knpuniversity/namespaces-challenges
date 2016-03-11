@@ -1,13 +1,14 @@
 addsimplenamespacecoding:
     question: |
         Everyone at the office is *starving*, but you want to
-        master namespaces before celebrating with lunch.
-
-        This `Pizza` class looks great. But now, give the
-        class a namespace - `Food\Tasty`. Then, update `eat.php`
-        to work, but **without** adding a `use` statement.
+        master namespaces before celebrating with lunch. The
+        `Pizza` class is great... but let's bring it into the world
+        of namespaces!
 
         Everyone is starving, and depending on you!
+    question_steps:
+        - Give `Pizza` a namespace - `Food\Tasty`
+        - Update `eat.php` to work with this - but **without** adding a `use` statement
     step: add-the-pizza-class
     files:
         eat.php: ~
