@@ -32,7 +32,7 @@ addsimplenamespacecoding:
             failure: "The output no longer has the COWP! Is something wrong?"
         should_be_no_use_statement:
             type: php
-            assertFalse: "input('eat.php') matches '/use/'"
+            assertFalse: inputContains('eat.php', 'use')
             failure: "See if you can create a new `Pizza` class, but *without* a `use` statement."
 addusestatementcoding:
     question: |
