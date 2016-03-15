@@ -163,9 +163,9 @@ fixmissingusestatementcoding:
         P.S. This is the *most* common mistake when using namespaces.
     step: add-the-lunch-class
     files:
+        Lunch.php: ~
         eat.php:
             read_only: true
-        Lunch.php: ~
         Pizza.php:
             read_only: true
     features:
