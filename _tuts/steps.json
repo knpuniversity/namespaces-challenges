@@ -16,8 +16,18 @@
             "description": null
         },
         {
+            "id": "add-use-statement",
+            "name": "Add use statement",
+            "description": null
+        },
+        {
             "id": "add-namespace-alias-to-the-pizza-class",
             "name": "Add namespace alias to the Pizza class",
+            "description": null
+        },
+        {
+            "id": "use-namespace-alias",
+            "name": "Use namespace alias",
             "description": null
         },
         {
@@ -31,5 +41,5 @@
             "description": null
         }
     ],
-    "sha": "f1f692a93b513e0fb5969bd1b279d4a569cbc30d"
+    "sha": "9f520573be20e298a75d03f7578c42684370dec9"
 }

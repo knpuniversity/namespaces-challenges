@@ -16,7 +16,7 @@ index 0000000..dc8cb71
 +    }
 +}
 diff --git a/eat.php b/eat.php
-index 27c83fa..b4c24f8 100644
+index 2602ba5..b4c24f8 100644
 --- a/eat.php
 +++ b/eat.php
 @@ -1,9 +1,9 @@
@@ -28,7 +28,7 @@ index 27c83fa..b4c24f8 100644
 -use Food\Tasty\Pizza as ItalianTreat;
 +use Meals\Lunch;
  
--$pizza = new Pizza();
+-$pizza = new ItalianTreat();
 -
 -echo $pizza->eat();
 +$lunch = new Lunch();
