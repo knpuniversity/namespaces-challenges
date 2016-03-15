@@ -175,17 +175,17 @@ fixmissingusestatementcoding:
     grading:
         check_output:
             type: http
-            assertTrue: "body() matches '/COWP/'"
-            failure: "The output no longer has the COWP! Is something wrong?"
+            assertTrue: body() matches '/COWP/'
+            failure: The output no longer has the COWP! Is something wrong?
         look_for_return:
             type: php
-            assertTrue: "input('Lunch.php') matches '/return new Pizza/'"
-            failure: "Try to fix it without changing the `Pizza` class name in `getFood()` method."
+            assertTrue: inputContains('Lunch.php', 'return new Pizza')
+            failure: Try to fix it without changing the `Pizza` class name in `getFood()` method.
         look_for_use:
             type: php
-            assertFalse: input('Lunch.php') matches '/use \Food\Tasty\Pizza;/'
+            assertFalse: inputContains('Lunch.php', 'use \\Food\\Tasty\\Pizza;')
             failure: Don't use `\` at the beginning of namespace in `use` statement. It doesn't necessary.
         look_for_use2:
             type: php
-            assertTrue: input('Lunch.php') matches '/use Food\Tasty\Pizza;/'
-            failure: "Seems we need to add a `use` statement for the `Pizza` class in the `Lunch.php` file."
+            assertTrue: inputContains('Lunch.php', 'use Food\\Tasty\\Pizza;')
+            failure: Seems we need to add a `use` statement for the `Pizza` class in the `Lunch.php` file.
