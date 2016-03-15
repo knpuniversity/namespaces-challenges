@@ -143,16 +143,16 @@ addaliastousestatementcoding:
     grading:
         check_output:
             type: http
-            assertTrue: "body() matches '/COWP/'"
-            failure: "The output no longer has the COWP! Is something wrong?"
+            assertTrue: body() matches '/COWP/'
+            failure: The output no longer has the COWP! Is something wrong?
         look_for_aliased_use:
             type: php
-            assertTrue: input('eat.php') matches '/use +Food\Tasty\Pizza +as +ItalianTreat;/'
-            failure: "Don't change the `use` line with the `ItalianTreat` alias. Instead, update the line where you create a new instance of the `Pizza` class to work with the `ItalianTreat` alias."
+            assertTrue: inputContains('eat.php', 'use Food\\Tasty\\Pizza as ItalianTreat;')
+            failure: Don't change the `use` line with the `ItalianTreat` alias. Instead, update the line where you create a new instance of the `Pizza` class to work with the `ItalianTreat` alias.
         look_for_new:
             type: php
-            assertTrue: "input('eat.php') matches '/new ItalianTreat/'"
-            failure: "Did you use the `ItalianTreat` alias for creating an instance of the `Pizza` class?"
+            assertTrue: inputContains('eat.php', 'new ItalianTreat')
+            failure: Did you use the `ItalianTreat` alias for creating an instance of the `Pizza` class?
 fixmissingusestatementcoding:
     question: |
         After lunch, the whole team is happily coding with
