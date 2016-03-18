@@ -21,7 +21,7 @@ addsimplenamespacecoding:
         check_old_class_does_not_exist:
             type: php
             assertFalse: class_exists('Pizza')
-            failure: Don't forget to give the `Pizza` class a namespace of `Food\Tasty`
+            failure: Did you remember to give the `Pizza` class a namespace of `Food\Tasty`
         check_for_new_class:
             type: php
             assertTrue: class_exists('Food\\Tasty\\Pizza')
@@ -36,9 +36,11 @@ addsimplenamespacecoding:
             failure: See if you can create a new `Pizza` class, but *without* a `use` statement.
 addusestatementcoding:
     question: |
-        Next, see if you can add a `use` statement
-        to `eat.php` for the `Pizza` class. Then, you
-        can shorten the line that creates the new `Pizza`.
+        That was totally worth waiting on lunch! But now that lunch
+        is over we have the energy to clean up a few more things.
+    question_steps:
+        - Add a `use` statement to `eat.php` for the `Pizza` class
+        - Then, shorten the line that creates the new `Pizza`
     step: add-namespace-to-the-pizza-class
     files:
         eat.php: ~
@@ -56,15 +58,15 @@ addusestatementcoding:
         look_for_use_only:
             type: php
             assertTrue: inputContains('eat.php', 'use ')
-            failure: You should add a `use` statement for the `Pizza` class.
+            failure: Don't forget to add a `use` statement for the `Pizza` class.
         look_for_use_no_slash:
             type: php
             assertFalse: inputContains('eat.php', 'use \\Food\\Tasty\\Pizza')
-            failure: Don't use `\` at the beginning of namespace in `use` statement. It's not necessary.
+            failure: Don't use `\` at the beginning of namespace in the `use` statement. It's not necessary.
         look_for_use_properly:
             type: php
             assertTrue: inputContains('eat.php', 'use Food\\Tasty\\Pizza')
-            failure: You should add a `use` statement for the `Pizza` class!!!
+            failure: Yo! You should add a `use` statement for the `Pizza` class!
         look_for_new:
             type: php
             assertFalse: inputContains('eat.php', 'new \\Food\\Tasty\\Pizza')
@@ -127,9 +129,10 @@ namespaceleadingslashmc:
     grading: []
 addaliastousestatementcoding:
     question: |
-        The intern is messing around and has changed the `use`
-        statement for `Pizza` to use an alias: `ItalianTreat`. Without
-        changing that line, update the `new` line so that the
+        The intern was messing around and has changed the `use`
+        statement for `Pizza` to use an alias: `ItalianTreat`.
+    question_steps:
+        - Without changing that line, update the `new` line so that the
         code runs using the new alias.
     step: add-namespace-alias-to-the-pizza-class
     files:
@@ -157,10 +160,11 @@ fixmissingusestatementcoding:
     question: |
         After lunch, the whole team is happily coding with
         namespaces and `use` statements. Suddenly, someone
-        sees an error and calls you over for help! Can you
-        fix this code?
+        sees an error and calls you over for help!
 
         P.S. This is the *most* common mistake when using namespaces.
+    question_steps:
+        - Change the code to fix the error
     step: add-the-lunch-class
     files:
         Lunch.php: ~
@@ -180,7 +184,7 @@ fixmissingusestatementcoding:
         look_for_return:
             type: php
             assertTrue: inputContains('Lunch.php', 'return new Pizza')
-            failure: Try to fix it without changing the `Pizza` class name in `getFood()` method.
+            failure: Woops, you need to fix it without changing the `Pizza` class name in `getFood()` method.
         look_for_use:
             type: php
             assertFalse: inputContains('Lunch.php', 'use \\Food\\Tasty\\Pizza;')
