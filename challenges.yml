@@ -132,8 +132,7 @@ addaliastousestatementcoding:
         The intern was messing around and has changed the `use`
         statement for `Pizza` to use an alias: `ItalianTreat`.
     question_steps:
-        - Without changing that line, update the `new` line so that the
-        code runs using the new alias.
+        - Without changing that line, update the `new` line so that the code runs using the new alias.
     step: add-namespace-alias-to-the-pizza-class
     files:
         eat.php: ~
