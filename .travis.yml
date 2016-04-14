@@ -13,5 +13,5 @@ before_install:
     - git clone https://github.com/knpuniversity/challenger.git $HOME/challenger
     - composer install -d $HOME/challenger
 
-script: php $HOME/challenger/bin/challenger test
+script: php $HOME/challenger/bin/challenger 
 
