@@ -12,6 +12,9 @@ php:
 before_install:
     - git clone https://github.com/knpuniversity/challenger.git $HOME/challenger
     - composer install -d $HOME/challenger
+    - export CHALLENGER_REPO_SHA=$TRAVIS_COMMIT
+    - export CHALLENGER_REPO_URL=https://github.com/$TRAVIS_REPO_SLUG
+    - echo $CHALLENGER_REPO_URL
 
-script: php $HOME/challenger/bin/challenger 
+script: php $HOME/challenger/bin/challenger test 
 
