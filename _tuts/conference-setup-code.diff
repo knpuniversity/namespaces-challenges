@@ -338,7 +338,7 @@ index 0000000..5da4a04
 +}
 diff --git a/index.php b/index.php
 new file mode 100644
-index 0000000..537785b
+index 0000000..6953be0
 --- /dev/null
 +++ b/index.php
 @@ -0,0 +1,16 @@
@@ -350,7 +350,7 @@ index 0000000..537785b
 +use Twig\Environment;
 +use Twig\Loader\FilesystemLoader;
 +
-+$twig = new Environment(new FilesystemLoader(__DIR__), ['debug' => true]);
++$twig = new Environment(new FilesystemLoader(__DIR__), ['debug' => true, 'strict_variables' => true]);
 +$conference = new PHPDetroit();
 +
 +$photos = $conference->getUnrelatedPhotos();
