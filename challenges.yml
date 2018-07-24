@@ -192,3 +192,52 @@ fixmissingusestatementcoding:
             type: php
             assertTrue: inputContains('Lunch.php', 'use Food\\Tasty\\Pizza;')
             failure: Seems we need to add a `use` statement for the `Pizza` class in the `Lunch.php` file.
+detroitphp2018_conference_challenge:
+    question: |
+        Aw nuts! We totally forgot to take photos at PHPDetroit. Ok,
+        no worries: we've placed some unrelated photos into a `photos/`
+        directory - probably nobody will notice the difference.
+
+        Find the photos with Symfony's Finder component and print
+        them out in Twig! Everything will be saved!
+    question_steps:
+        - In `PHPDetroit.php`, add 2 new lines to the `Finder` to *only* find `.png` images that are larger than 30kb! Not sure how? Check out the [Finder docs](https://symfony.com/doc/current/components/finder.html)!
+        - Still inside `PHPDetroit`, inside the `foreach`, add each image's filename (e.g. `panda.png`) to the `$photoFilenames` array. Yes! We're now returning the found image names!
+        - The photo filenames are passed to `photos.twig` as a `photos` variable. Print out the image filename and check out the result!
+    step: conference-setup-code
+    files:
+        index.php:
+            read_only: true
+        PHPDetroit.php: ~
+        photos.twig: ~
+        ConferenceInterface.php:
+            read_only: true
+    features:
+        editor: ~
+        browser:
+            default_uri: /index.php
+    grading:
+        look_for_name_filter:
+            type: php
+            assertTrue: inputContains('PHPDetroit.php', '->name')
+            failure: Try using the `->name()` function on the `$finder` object in `PHPDetroit` to only find files ending in `.png`.
+        look_for_size_filter:
+            type: php
+            assertTrue: inputContains('PHPDetroit.php', '->size')
+            failure: Try using the `->size()` function on the `$finder` object in `PHPDetroit` to only find files greater than `30K`.
+        look_for_size_of_photos_variable:
+            type: php
+            assertTrue: count(variable('photos')) == 3
+            failure: Hmm, the $photos variable in `index.php` should contain 3 items. But, it doesn't look right. Are you returning the 3 `.png` filenames correctly from `PHPDetroit`?
+        check_output:
+            type: http
+            assertTrue: body() matches '/\\/photos\\/woh\\.png/'
+            failure: Hmm, I don't see the `/photos/woh.png` img tag in the output.
+        check_output2:
+            type: http
+            assertTrue: body() matches '/\\/photos\\/hiiiiiiii\\.png/'
+            failure: Hmm, I don't see the `/photos/hiiiiiiii.png` img tag in the output.
+        check_output3:
+            type: http
+            assertTrue: body() matches '/\\/photos\\/selfie\\.png/'
+            failure: Hmm, I don't see the `/photos/selfie.png` img tag in the output.
