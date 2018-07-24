@@ -1,0 +1,58 @@
+diff --git a/PHPDetroit.php b/PHPDetroit.php
+index ee2234b..4b299b6 100644
+--- a/PHPDetroit.php
++++ b/PHPDetroit.php
+@@ -10,23 +10,16 @@ class PHPDetroit implements ConferenceInterface
+     {
+         $finder = new Finder();
+         $finder->in(__DIR__.'/photos')
+-            /*
+-             ****** STEP 1: *****
+-             * Find all images ending in .png
+-             * that are bigger than 30k
+-             */
++            ->name('*.png')
++            ->size('>30K')
+         ;
+ 
+         $photoFilenames = [];
+         foreach ($finder as $fileInfo) {
+             /** @var \SplFileInfo $finder */
+-            /*
+-             ****** STEP 2: *****
+-             * Add the filename (e.g. puppies.png)
+-             * to the photoFilenames array
+-             */
++            $photoFilenames[] = $fileInfo->getFilename();
+         }
+ 
+         return $photoFilenames;
+     }
+-}
++}
+\ No newline at end of file
+diff --git a/photos.twig b/photos.twig
+index 6ffe9e4..16390c0 100644
+--- a/photos.twig
++++ b/photos.twig
+@@ -4,12 +4,8 @@
+         <ul class="list-inline">
+             {% for photo in photos %}
+                 <li class="list-inline-item">
+-                    <!--
+-                        ### Step 3:
+-                        ### Replace ??? with the dynamic photo filename
+-                    -->
+                     <img
+-                        src="/photos/???"
++                        src="/photos/{{ photo }}"
+                         class="rounded-circle"
+                         width="100"
+                     />
+@@ -19,4 +15,4 @@
+             {% endfor %}
+         </ul>
+     </body>
+-</html>
++</html>
+\ No newline at end of file

@@ -39,7 +39,17 @@
             "id": "fix-the-pizza-class-namespace",
             "name": "Fix the Pizza class namespace",
             "description": null
+        },
+        {
+            "id": "conference-setup-code",
+            "name": "Conference: Setup code",
+            "description": null
+        },
+        {
+            "id": "conference-final-code",
+            "name": "Conference: Final code",
+            "description": null
         }
     ],
-    "sha": "9f520573be20e298a75d03f7578c42684370dec9"
+    "sha": "e13f34cb4211db50f544d59d6150134d7bdd3142"
 }
